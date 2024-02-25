@@ -27,7 +27,7 @@ class UsersFactory extends Factory
             'fullname' => $this->faker->firstName . ' ' . $this->faker->lastName,
 
             'address' => $this->faker->address,
-            'phone_number' => '0' . $this->faker->numerify('##########'),
+            'phone_number' => '0' . $this->faker->numerify('#########'),
 
             'status_id' => $this->faker->numberBetween(1, 2),
         ];

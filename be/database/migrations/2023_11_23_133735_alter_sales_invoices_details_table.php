@@ -20,15 +20,15 @@ return new class extends Migration
                 table: 'products',
                 indexName: 'sales_invoices_details_products_id'
             );
-            $table->foreignId('colors_id')->constrained(
+            $table->foreignId('colors_id')->after('products_id')->constrained(
                 table: 'colors',
                 indexName: 'sales_invoices_details_colors_id'
             );
-            $table->foreignId('sizes_id')->constrained(
+            $table->foreignId('sizes_id')->after('colors_id')->constrained(
                 table: 'sizes',
                 indexName: 'sales_invoices_details_sizes_id'
             );
-            $table->foreignId('status_id')->default(1)->constrained(
+            $table->foreignId('status_id')->default(1)->after('sizes_id')->constrained(
                 table: 'status',
                 indexName: 'sales_invoices_details_status_id'
             );

@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('name');
 
             $table->decimal('amount_discounts');
-            $table->string('type_discounts');
 
             $table->dateTime('start_date');
             $table->dateTime('end_date');

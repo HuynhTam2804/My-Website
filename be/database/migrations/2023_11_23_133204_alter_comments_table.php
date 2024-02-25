@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('comments', function (Blueprint $table) {
-            $table->foreignId('users_id')->after('content')->constrained(
+            $table->foreignId('users_id')->after('ratings')->constrained(
                 table: 'users',
                 indexName: 'comments_users_id'
             );

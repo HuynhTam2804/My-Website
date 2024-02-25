@@ -20,8 +20,9 @@ class ProvidersFactory extends Factory
             'name' => $this->faker->Name,
             'email' => $this->faker->userName . '@company.com',
 
-            'phone_number' => '0' . $this->faker->numerify('##########'),
+            'phone_number' => '0' . $this->faker->numerify('#########'),
             'address' => $this->faker->address,
+            'descriptions' => $this->faker->sentence,
 
             'status_id' => $this->faker->numberBetween(1, 2),
         ];

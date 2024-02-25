@@ -12,15 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('sales_invoices', function (Blueprint $table) {
-            $table->foreignId('users_id')->constrained(
+            $table->foreignId('users_id')->after('total_price')->constrained(
                 table: 'users',
                 indexName: 'sales_invoices_users_id'
             );
-            $table->foreignId('discounts_id')->nullable()->constrained(
+            $table->foreignId('discounts_id')->after('users_id')->nullable()->constrained(
                 table: 'discounts',
                 indexName: 'sales_invoices_details_discounts_id'
             );
-            $table->foreignId('status_sales_id')->default(1)->constrained(
+            $table->foreignId('status_sales_id')->after('discounts_id')->default(1)->constrained(
                 table: 'status_sales',
                 indexName: 'sales_invoices_status_sales_id'
             );

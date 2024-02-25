@@ -19,23 +19,38 @@ use App\Http\Controllers\ProvidersController;
 */
 
 
-Route::middleware('guest')->group(function () {
-
-    Route::get('/login', [AdminsController::class, 'Login'])->name('login');
-    Route::post('/login', [AdminsController::class, 'LoginHandler'])->name('login-handler');
-});
-
-Route::middleware('auth')->group(function () {
-    Route::get('/', [AdminsController::class, 'DashBoard'])->name('dashboard');
-    Route::get('/logout', [AdminsController::class, 'Logout'])->name('logout');
-});
 
 // Route::get('/', function () {
-//     return view('login');
+//     // return view('login');
+//     return view('layout');
 // });
 
+Route::middleware('guest')->group(function () {
+
+    Route::get('/login', [AdminsController::class, 'login'])->name('admins.login');
+    Route::post('/login', [AdminsController::class, 'loginHandle'])->name('loginHandle');
+});
 
 Route::middleware('auth')->group(function () {
+
+
+    Route::get('/', [AdminsController::class, 'dashBoard'])->name('index');
+    Route::get('/logout', [AdminsController::class, 'logout'])->name('admins.logout');
+
+    //Admins
+    Route::prefix('/admins')->name('admins.')->group(function () {
+        Route::get('/', [AdminsController::class, 'index'])->name('index');
+        Route::post('/search', [AdminsController::class, 'search'])->name('search');
+
+        Route::post('/create', [AdminsController::class, 'create'])->name('create');
+
+        Route::get('/update/{id}', [AdminsController::class, 'update'])->name('update');
+        Route::post('/update/{id}', [AdminsController::class, 'updateHandle'])->name('update');
+
+        Route::get('/delete/{id}', [AdminsController::class, 'delete'])->name('delete');
+    });
+    //endAdmins
+
 
     //Product
 
