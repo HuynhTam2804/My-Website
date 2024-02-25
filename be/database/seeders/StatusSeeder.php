@@ -13,7 +13,7 @@ class StatusSeeder extends Seeder
      */
     public function run(): void
     {
-        $status = ['Exist', 'Un'];
+        $status = ['Exists', 'Not_exists'];
         foreach ($status as $name) {
             Status::create(['name' => $name]);
         }

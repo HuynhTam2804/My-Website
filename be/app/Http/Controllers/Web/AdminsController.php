@@ -24,13 +24,12 @@ class AdminsController extends Controller
     public function loginHandle(Request $req)
     {
         if (Auth::attempt(['username' => $req->username, 'password' => $req->password])) {
-            $ad = Auth::user();
-            if ($ad) {
-                if ($ad['status_id'] == 2) {
+            $admin = Auth::user();
+            if ($admin) {
+                if ($admin['status_id'] == 2) {
                     return redirect()->route('admins.login')->with('alert', 'This account has been locked !!');
                 } else {
                     return redirect()->route('dashboard.index');
-                    // return view('dashboard');
                 }
             }
         }

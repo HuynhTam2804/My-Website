@@ -45,7 +45,7 @@
 
                     Swal.fire({
                         title: 'Confirm To Lock Account',
-                        text: 'Are you sure to lock this ' + name + ' account ?',
+                        text: 'Are you sure to lock ' + name + ' account ?',
                         icon: 'warning',
                         showCancelButton: true,
                         confirmButtonText: 'Lock',

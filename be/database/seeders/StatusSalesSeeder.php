@@ -13,7 +13,7 @@ class StatusSalesSeeder extends Seeder
      */
     public function run(): void
     {
-        $status = ['Verify', 'Verified', 'Cancelled', 'Delivering', 'Delivered'];
+        $status = ['Verify', 'Confirmed', 'Cancelled', 'Delivering', 'Delivered'];
         foreach ($status as $name) {
             StatusSales::create(['name' => $name]);
         }

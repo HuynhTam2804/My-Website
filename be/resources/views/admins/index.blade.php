@@ -44,9 +44,6 @@
     <script>
         var $j = jQuery.noConflict();
 
-        $j(document).ready(function() {})
-        var csrfToken = '{{ csrf_token() }}';
-
         var currentAdminsID;
         $j(document).ready(function() {
             $j(document).on('click', '.edit-button', function() {
@@ -70,6 +67,9 @@
                 updateAdminsHandle(currentAdminsID);
             });
         });
+
+        $j(document).ready(function() {})
+        var csrfToken = '{{ csrf_token() }}';
 
         function createAdmins() {
             var formElement = $('form#createForm')[0];
